@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+       th:replace ="normal/base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8"/>
+<title>This is home page</title>
+</head>
+
+<body>
+<section>
+ <div class="container3 d-flex justify-content-center">
+    <div class="main-body" >
+    
+              <div class="card">
+                <div class="card-body4 d-flex flex-row bg-secondary ">
+                
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="" th:src="@{'/img/'+${user.imageUrl}}" width="150" style="height: 160px; width: 150px;" class="my_profile_picture">
+                    <div>
+                      <h4  th:text="${user.name}" class="text-secondary mt-5">John Doe</h4>
+                      <p th:text="${'SRMUSERID'+ user.id}" class="text-secondary mb-1"></p>
+                      <p class="text-muted font-size-sm"></p>
+                      
+                      <button th:text="${user.enabled}" class="btn btn-outline-primary">Message</button>
+                    </div>
+                  </div>
+             
+             
+                <div class="card-body2">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6  class="mb-0">Name -</h6>
+                    </div>
+                    <div th:text="${user.name}" class="col-sm-5 text-bold">
+                      Kenneth Valdez
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email -</h6>
+                    </div>
+                    <div th:text="${user.email}" class="col-sm-9 text-bold">
+                      fip@jukmuh.al
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Role -</h6>
+                    </div>
+                    <div th:text="${user.role}"class="col-sm-9 text-bold">
+                      (239) 816-9029
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">About -</h6>
+                    </div>
+                    <div th:text="${user.about}" class="col-sm-9 text-bold">
+                      
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address -</h6>
+                    </div>
+                    <div class="col-sm-9 text-bold">
+                     
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+    </div>
+    </div>
+</section>
+</body>
+</html>

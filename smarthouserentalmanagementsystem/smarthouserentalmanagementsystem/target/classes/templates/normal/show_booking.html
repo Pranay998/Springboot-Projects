@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>This is home page</title>
+
+</head>
+
+<body>
+	<section>
+
+		<div class="cardv ">
+			<div class="card-body">
+				<h1 class="text-center mb-4">Bookings</h1>
+
+				<!-- Search -->
+
+				<form th:action="@{/search}" method="get">
+					<input type="text" name="query" th:value="${query}"
+						placeholder="Find Booking by Customername" size="65">
+					<button type="submit" class="btn btn-info">Search</button>
+					<button type="reset" class="btn btn-info">Reset</button>
+				</form>
+
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#ID</th>
+							<th scope="col">Name</th>
+							<th scope="col">Email</th>
+							<th scope="col">Phone</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="c:${booking}">
+							<th scope="row" th:text="${'SRMBOOKINGID'+c.bid}">1</th>
+							<td><img src="" class="my_profile_picture"
+								th:src="@{'/img/'+${c.image}}">&nbsp;&nbsp;<span
+								th:text="${c.customername}"></span></td>
+							<td><a href="#" th:href="@{'/user/booking/'+${c.bid}}"><span
+									th:text="${c.email}"></span></a></td>
+							<td th:text="${'+91'+ c.phoneno}"></td>
+							<td>
+								<form method="post"
+									th:action="@{'/user/update_booking/'+${c.bid}}" class="mt-2">
+									<button type="submit" class="btn btn-primary btn-sm">Update</button>
+								</form> <a href="#" th:onclick="|deleteContact(${c.bid})|"
+								class="btn btn-danger btn-sm">Delete</a>
+							</td>
+						</tr>
+
+
+					</tbody>
+				</table>
+
+				<!-- Pagination -->
+
+				<nav aria-label="...">
+					<ul class="pagination">
+						<li th:if="${currentPage != 0}" class="page-item"><a
+							th:href="@{'/user/show_booking/'+${currentPage-1}}"
+							class="page-link" href="#" tabindex="-1">Previous</a></li>
+						<li th:classappend="${currentPage==i-1?'active':''}"
+							th:each="i: ${#numbers.sequence(1,totalPages)}" class="page-item"><a
+							th:href="@{'/user/show_booking/'+${i-1}}" class="page-link"
+							href="#"><span th:text="${i}"></span></a></li>
+
+						<li th:if="${currentPage+1 != totalPages}" class="page-item"><a
+							th:href="@{'/user/show_booking/'+${currentPage+1}}"
+							class="page-link" href="#">Next</a></li>
+					</ul>
+				</nav>
+
+			</div>
+
+
+		</div>
+
+	</section>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::Layout(~{::section})">
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+<meta charset="UTF-8" />
+<title>This is home page</title>
+</head>
+
+<body>
+	<section >
+		<!-- <div class="card3 mt-3 mb-3">
+			<div class="card-body">
+				<div class="container text-center">
+					<img src="" style="height: 150px; width: 150px;"
+						class="my_profile_picture" th:src="@{'/img/'+${booking.image}}">
+                    <h3 class="mt-3">
+                    <span th:text="${booking.customername}"></span>
+                    <span th:text="${booking.description}"></span>
+                     <span th:text="${booking.email}"></span>
+                      <span th:text="${booking.phoneno}"></span>
+                       <span th:text="${booking.date}"></span>
+                       <span th:text="${booking.paymentdetails}"></span>
+                       
+                    </h3>
+
+				</div>
+			</div>
+		</div> -->
+
+
+
+
+		<div class="container emp-profile" th:if=${booking} >
+				<div class="row">
+					<div class="col-md-4">
+						<div class="profile-img">
+							<img src="" th:src="@{'/img/'+${booking.image}}" alt="" />
+							<!-- <div class="file btn btn-lg btn-primary">
+								Change Photo <input type="file" name="file" />
+							</div> -->
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="profile-head">
+							<h5 th:text="${booking.customername}">Kshiti Ghelani</h5>
+
+							<ul class="nav nav-tabs">
+								<li class="nav-item"><a class="nav-link active"
+									data-toggle="tab" aria-controls="about" aria-selected="true"
+									href="#about">Details</a></li>
+
+							</ul>
+						</div>
+					</div>
+					
+					<div class="col-md-2">
+					
+						<button type="submit" class="profile-edit-btn" name="btnAddMore">Edit Profile</button>
+							
+							
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="profile-work"></div>
+					</div>
+					<div class="col-md-8">
+						<div class="tab-content" id="myTabContent">
+							<div class="tab-pane fade show active" id="about">
+								<div class="row">
+									<div class="col-md-6">
+										<label>User Id</label>
+									</div>
+									<div class="col-md-6">
+										<p th:text="${'SRMUSER'+ bid}">Kshiti123</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<label>Name</label>
+									</div>
+									<div class="col-md-6">
+										<p th:text="${booking.customername}">Kshiti Ghelani</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<label>Email</label>
+									</div>
+									<div class="col-md-6">
+										<p th:text="${booking.email}">>kshitighelani@gmail.com</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<label>Phone</label>
+									</div>
+									<div class="col-md-6">
+										<p th:text="${'+91'+ booking.phoneno}">123 456 7890</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<label>Profession</label>
+									</div>
+									<div class="col-md-6">
+										<p th:text="${booking.profession}">Web Developer and
+											Designer</p>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 ">
+									<label>Payment Details</label>
+								</div>
+								<div class="col-md-6">
+									<p th:text="${'₹'+ booking.paymentdetails}">Web Developer and
+										Designer</p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label>Payment Date</label>
+							</div>
+							<div class="col-md-6">
+								<p th:text="${booking.date}">Web Developer and Designer</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h2>Notes</h2>
+							<div class="danger">
+							
+									<strong th:text="${booking.description}"></strong>
+								
+							</div>
+					
+						</div>
+						
+					</div>
+
+
+				</div>
+		</div>
+	
+
+		
+		
+
+
+
+	</section>
+</body>
+</html>

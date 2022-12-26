@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>This is home page</title>
+</head>
+
+<body>
+	<section>
+		<div class="card3">
+			<div class="card-body">
+				<h1 class="text-center">Update Booking</h1>
+
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-10 offset-md-1">
+
+							<form action="#" th:object="${booking}"
+								enctype="multipart/form-data" method="POST"
+								th:action="@{/user/process_update}" class="mt-2">
+
+
+								<input type="hidden" th:value="${booking.bid}" name="bid" />
+
+								<!-- First Name -->
+
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<i class="fas fa-user-alt"></i>
+										</div>
+									</div>
+
+									<input th:value="${booking.customername}" required type="text"
+										id="customername" name="customername"
+										placeholder="Enter Name Here" class="form-control" />
+								</div>
+
+								<!-- Email Field -->
+
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text">@</div>
+									</div>
+									<input th:value="${booking.email}" required type="text"
+										id="email" name="email" placeholder="Enter Email Here"
+										class="form-control" />
+								</div>
+
+								<!-- Phone no Field -->
+
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<i class="fa fa-phone"></i>
+										</div>
+									</div>
+
+									<input th:value="${booking.phoneno}" required min="10"
+										type="number" id="phoneno" name="phoneno"
+										placeholder="Enter Phone no Here" class="form-control" />
+								</div>
+
+								<!-- Profession Field -->
+
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<i class="fa fa-briefcase"></i>
+										</div>
+									</div>
+
+									<input th:value="${booking.profession}" type="text"
+										id="profession" name="profession"
+										placeholder="Enter Profession Here" class="form-control" />
+								</div>
+
+								<!-- Date of Booking Field -->
+
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<i class="fa fa-calendar"></i>
+										</div>
+									</div>
+
+									<label for="birthday"></label> <input
+										th:value="${booking.date}" type="date" class="form-control"
+										id="date" name="date">
+
+								</div>
+
+								<!-- Payment Details Field -->
+
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<i class="fa fa-inr"></i>
+										</div>
+									</div>
+
+									<input th:value="${booking.paymentdetails}" type="text"
+										id="paymentdetails" name="paymentdetails"
+										placeholder="Enter Payment Details Here" class="form-control" />
+								</div>
+
+								<!-- Image  Field -->
+
+								<div class="container text-center mt-4">
+									<img style="width: 200px; height: 200px"
+										class="image-fluid my_profile_picture" src=""
+										th:src="@{'/img/'+${booking.image}}" />
+								</div>
+
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<i class="fa fa-image"></i>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="exampleFormControlFile1"> </label> <input
+											th:value="${booking.image}" type="file" name="profileimage"
+											class="form-control-file" id="image">
+									</div>
+
+
+
+
+									<!-- Description  Field -->
+
+									<div class="input-group mt-3 mb-3">
+
+										<textarea th:text="${booking.description}" id="mytextarea"
+											placeholder="Enter Booking Description Here"
+											class="form-control" name="description" rows="10"></textarea>
+
+									</div>
+									<div class="container text-center">
+
+										<button class="btn btn-outline-primary">Save Booking</button>
+
+									</div>
+							</form>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<script
+			src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
+			referrerpolicy="origin">
+			tinymce.init({
+				selector : '#mytextarea'
+			});
+		</script>
+	</section>
+</body>
+</html>

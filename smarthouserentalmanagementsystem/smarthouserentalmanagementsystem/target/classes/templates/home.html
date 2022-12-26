@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+       th:replace ="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8"/>
+<title>This is home page</title>
+</head>
+
+
+<section class="banner d-flex justify-content-center align-items-center">
+<div class = "text-center">
+<h1 class="font-weight-bold">Smart Rental Management</h1>
+<p>Start collecting your Rental details in very smarter way.We provide very efficient and smarter way of handling rental details</p>
+<a href="#" th:href="@{/user/index}" class="item"><button class="btn btn-primary btn-l">Get Start</button></a>
+</div>
+</section>
+
+
+</html>

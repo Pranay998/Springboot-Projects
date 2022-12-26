@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>This is home page</title>
+<link rel='stylesheet'
+	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+</link>
+
+</head>
+
+<body>
+	<section>
+		<div id="Login">
+			<div class="container1">
+				<div class="d-flex justify-content-center h-100">
+					<div class="cardlogin">
+						<div class="card-header text-center">
+
+							<!-- Message Box -->
+
+							<div th:if="${session.message}" class="container ">
+								<div  
+									class="alert alert-danger text-center" role="alert">
+
+									<span th:text="${session.message}"></span>
+								</div>
+								<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+							</div>
+
+							<!-- email form -->
+							<h2>Your Registered Email</h2>
+
+
+							<form method="post" action="" th:action="@{/sendOtp}">
+								<div class="form-group">
+									<input name="email" required="required" type="email"
+										placeholder="Enter Here" class="form-control mt-5" />
+									<div class="container">
+										<button class="btn btn-warning mt-4">Send OTP</button>
+									</div>
+
+								</div>
+							</form>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
